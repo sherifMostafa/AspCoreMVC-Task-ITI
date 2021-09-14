@@ -1,0 +1,29 @@
+﻿@model Project
+@{
+    ViewData["Title"] = "create";
+}
+
+<h1>create Project</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="name">name</label>
+        <input type="text" asp-for="name" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="category">category</label>
+        <input type="text" asp-for="category" class="form-control">
+    </div>
+     <div class="form-group">
+        <label asp-for="Desc">desc</label>
+        <textarea asp-for="category" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="stude_id">student name</label>
+        <select asp-items="ViewBag.students" asp-for="stude_id" class="form-control"></select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+

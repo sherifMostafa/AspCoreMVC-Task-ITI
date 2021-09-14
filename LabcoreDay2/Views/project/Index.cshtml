@@ -1,0 +1,42 @@
+﻿@model List<Project>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1>Index</h1>
+<div class="text-center m-4">
+    <a asp-action="create" class="btn btn-primary">Create</a>
+</div>
+<div class="container">
+    <table class="table">
+        <tr>
+            <td>id</td>
+            <td>name</td>
+            <td>category</td>
+            <td>Date and time</td>
+            <td>studentname</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@item.id</td>
+        <td>@item.name</td>
+        <td>@item.category</td>
+        <td>@item.data</td>
+        @if (@item.student == null)
+        {
+            <td>no Student</td>
+        }
+        else
+        {
+            <td>@item.student.name</td>
+        }
+
+        <td> <a asp-action="delete" asp-route-id="@item.id" asp-controller="project" class="btn btn-danger">Delete</a> </td>
+        <td> <a asp-action="edite" asp-route-id="@item.id" asp-controller="project" class="btn btn-info">Edite</a> </td>
+
+    </tr>
+        }
+    </table>
+</div>
